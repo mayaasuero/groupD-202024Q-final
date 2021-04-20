@@ -1,1 +1,1 @@
-# groupD-202024Q-final
+# Group D - Student Profiling App

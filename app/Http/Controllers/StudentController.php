@@ -17,7 +17,8 @@ class StudentController extends Controller
         $stud->year_level = $req->yearlevel;
         $stud->course = $req->course;
         $stud->id_number = $req->student_id;
-        echo $stud->save();
+        $stud->save();
+        return back();
     }
 
     function retrieveStudent(){

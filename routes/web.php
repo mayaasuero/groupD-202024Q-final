@@ -19,8 +19,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::view('student-list', 'student-list');
-Route::post('submit', 'StudentController@saveStudent');
-Route::get('student-list', 'StudentController@retrieveStudent');
-Route::get('delete/{id_student}', 'StudentController@deleteStudent');
-
+Route::resource('students', StudentController::class);

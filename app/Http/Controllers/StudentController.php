@@ -7,32 +7,70 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
-    //
-    function saveStudent(Request $req){
-        $stud = new Student;
-        $stud->firstname = $req->firstname;
-        $stud->lastname = $req->lastname;
-        $stud->birthdate= $req->birthdate;
-        $stud->address = $req->address;
-        $stud->year_level = $req->yearlevel;
-        $stud->course = $req->course;
-        $stud->id_number = $req->id_number;
-        $stud->save();
-        return back();
+    
+    public function index()
+    {
+        $student = Student::all();
+        return view('list', compact('student'));
     }
 
-    function retrieveStudent(){
+    function store(Request $req){
+        $data = $req->validate([
+            'id_number' => 'required|max:255',
+            'firstname' => 'required|max:255',
+            'middlename' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'birthdate' => 'required|date',
+            'address' => 'required|max:255',
+            'year_level' => 'required|numeric',
+            'course' => 'required|max:255',
+        ]);
+        $student = Student::create($data);
+        return redirect('/students')->with('completed', 'Student has been added!');
+
+        // return back();
+    }
+    
+    public function create()
+    {
+        return view('create');
+    }
+
+    function show(){
         $data= Student::all();
-        return view('student-list', ['data'=>$data]);
+        return view('students', compact('data'));
     }
 
-    function removeStudent(Request $id){
-        $stud = Student::find($id);
-        $stud->delete();
-        return redirect()->route('student-list')->with('success','Student deleted.');
+    public function destroy($id_number){
+        $student = Student::findOrFail($id_number);
+        $student->delete();
+
+        return redirect('students')->with('completed', 'Student has been removed.');
     }
 
-    function editStudent(Request $id){
-        echo "edit";
+    /**
+     * wala pa ni
+     */
+    public function edit($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('edit', compact('student'));
+    }
+
+    public function update(Request $req, $id)
+    {
+        $updateData = $req->validate([
+            'id_number' => 'required|max:255',
+            'firstname' => 'required|max:255',
+            'middlename' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'birthdate' => 'required|date',
+            'address' => 'required|max:255',
+            'year_level' => 'required|numeric',
+            'course' => 'required|max:255',
+        ]);
+        Student::where('id_number',$id)->update($updateData);
+        return redirect('/students')->with('completed', 'Student has been updated');
+
     }
 }

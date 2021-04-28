@@ -35,9 +35,9 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($data as $i)
+                @foreach ($data as $ctr=>$i)
                 <tr class="table-active">
-                    <th scope="row">1</th>
+                    <th scope="row">{{$ctr+1}}</th>
                     <td name="username">{{$i->id_number}}</td>
                     <td name="firstname">{{$i->firstname}}</td>
                     <td name="lastname">{{$i->lastname}}</td>
@@ -45,8 +45,8 @@
                     <td name="address">{{$i->address}}</td>
                     <td name="year_level">{{$i->year_level}}</td>
                     <td name="course">{{$i->course}}</td>
-                    <td><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Edit</button></td>
-                    <td><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Remove</button></td>
+                    <td><button type="submit" class="btn btn-primary btn-block" id="loginbtn"><a href="{{action('StudentController@removeStudent'), $i['id_student']}}" class="btn btn-warning">Remove</button></td>
+						  <td><button type="submit" class="btn btn-primary btn-block" id="loginbtn"><a href="{{action('StudentController@editStudent'), $i['id_student']}}" class="btn btn-warning">Edit</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -64,16 +64,16 @@
       <form action="submit" method="POST">
         @csrf
         <div class="container2">
+        <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="Student ID">
             <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First Name">
             <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Last Name">
-            <input type="text" name="username" id="username" class="form-control" value="" placeholder="Username">
-            <input type="date" name="date" id="date" class="form-control" value="" placeholder="Birthday">
+            <input type="date" name="birthdate" id="birthdate" class="form-control" value="" placeholder="Birthday">
             <input type="text" name="address" id="address" class="form-control" value="" placeholder="Address">
             <input type="text" name="yearlevel" id="yearlevel" class="form-control" value="" placeholder="Year Level">
             <input type="text" name="course" id="course" class="form-control" value="" placeholder="Course">
-            <input type="text" name="email" id="email" class="form-control" value="" placeholder="Username / email">
+            <!-- <input type="text" name="email" id="email" class="form-control" value="" placeholder="Username / email">
             <input type="password" name="password" id="password" value="" class="form-control" placeholder="Password">
-            <input type="password" name="password" id="password2" value="" class="form-control" placeholder="Confirm Password">
+            <input type="password" name="password" id="password2" value="" class="form-control" placeholder="Confirm Password"> -->
             <th><button type="submit" onclick="addStudent()" class="btn btn-primary btn-block" id="loginbtn">Add/Edit User</button></th>
         </div>
     </form>

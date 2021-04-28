@@ -15,8 +15,8 @@
     <div class="nav-container">
       <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Add User</a>
-            <a class="nav-link active" id="views" aria-current="page" href="/View.html">    View</a>
+            <a class="nav-link active" id="views" aria-current="page" href="{{ Route('students.index') }}">Back to list</a>
+          <a class="nav-link active" id="add/dit" aria-current="page" href="{{ Route('students.create') }}">Add</a>
           </li>
       </div>
       <form action="{{ route('students.store') }}" method="post">

@@ -15,9 +15,9 @@
 <div class="nav-container">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" id="views" aria-current="page" href="#">View</a>
+          <a class="nav-link active" id="views" aria-current="page" href="{{ Route('students.index') }}">View</a>
           <a class="nav-link active" id="add/dit" aria-current="page" href="{{ Route('students.create') }}">Add</a>
-          <a class="nav-link active" id="add/dit" aria-current="page" href="#">Log Out</a>
+          <a class="nav-link active" id="add/dit" aria-current="page" href="{{ url('/') }}">Log Out</a>
           
         </li>
     </div>

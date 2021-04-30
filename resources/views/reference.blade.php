@@ -20,7 +20,7 @@
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body">
 
     <!-- Side Menu -->
     <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -34,12 +34,12 @@
             <li><a href="#about">About</a>
             </li>
             <li><a href="#services">Goals</a>
-            </li>
+            </li>   
             <li><a href="{{ Route('students.index') }}">List of Students</a>
             </li>
             <!-- <li><a href="#portfolio">View</a>
             </li> -->
-            <li><a href="{{ Route('students.create') }}">Add</a>
+            <li><a href="{{ Route('students.create') }}">Add Student</a>
             </li>
         </ul>
     </div>
@@ -70,6 +70,49 @@
     </div>
     <!-- /Intro -->
 
+    <!-- Services -->
+    <div id="services" class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>University Goals</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-graduation-cap"></i>
+                        <h4>Academic Excellence</h4>
+                        <p>To develop the knowledge, skills, and attitudes required for a solid and interdisciplinary foundation in the arts, sciences, and humanities.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-book"></i> 
+                        <h4>Holistic Formation</h4>
+                        <p>To educate the heads, hearts, and hands of men and women who will serve the faith, promote justice, dialogue with cultures and religions, and care for creation, our common home.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-sitemap"></i>
+                        <h4>Social Engagement</h4>
+                        <p>To form men and women for others, who possess a deep sense of leadership and service characterized by discerning and concrete engagement in social issues and by direct service to communities, especially for the poor and those in the peripheries.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-flag-checkered"></i>
+                        <h4>Global Competitiveness</h4>
+                        <p>To educate lifelong learners who will continue to equip themselves with competencies that will enable them to work and compete in other knowledge-based economies and societies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Services -->
+
     <!-- Callout -->
     <div class="callout">
         <div class="vert-text">
@@ -78,13 +121,50 @@
     </div>
     <!-- /Callout -->
 
+    <!-- Portfolio -->
+    <div id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>View</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="container-table">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID Number</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Middle Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Year Level</th>
+                        <th scope="col">Course</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+              </table>
+              
+              </table>
+              
+            </div>
+        </div>
+    </div>
+    <!-- /Portfolio -->
+
     <!-- Call to Action -->
     <div class="call-to-action">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>Save User</h3>
-                    <!--<a href="#" class="btn btn-lg btn-primary">Back to top</a>-->
+                    <h3>Edit / Add User</h3>
+                    <a href="#" class="btn btn-lg btn-primary">Back to top</a>
                 </div>
             </div>
         </div>
@@ -93,22 +173,19 @@
 
     <!-- Map -->
     <div id="contact" class="map"> 
-      <form action="{{ route('students.update', $student->id_number) }}" method="post">
-      <div class="container2">
-        @csrf
-        @method('PATCH')
-            <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="ID Number">
+        <div class="container2">
             <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First Name">
-            <input type="text" name="middlename" id="middlename" class="form-control" value="" placeholder="Middle Name">
             <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Last Name">
-            <input type="date" name="birthdate" id="birthdate" class="form-control" value="" placeholder="Birthday">
+            <input type="text" name="username" id="username" class="form-control" value="" placeholder="Username">
+            <input type="date" name="date" id="date" class="form-control" value="" placeholder="Birthday">
             <input type="text" name="address" id="address" class="form-control" value="" placeholder="Address">
-            <input type="text" name="year_level" id="year_level" class="form-control" value="" placeholder="Year Level">
+            <input type="text" name="yearlevel" id="yearlevel" class="form-control" value="" placeholder="Year Level">
             <input type="text" name="course" id="course" class="form-control" value="" placeholder="Course">
-            <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Save User</button></th>
-        </div>
-        </form>
-
+            <input type="text" name="email" id="email" class="form-control" value="" placeholder="Username / email">
+            <input type="password" name="password" id="password" value="" class="form-control" placeholder="Password">
+            <input type="password" name="password" id="password2" value="" class="form-control" placeholder="Confirm Password">
+              <th><button type="submit" onclick="addStudent()" class="btn btn-primary btn-block" id="add">Add/Edit User</button></th>
+         </div>
     </div>
     <!-- /Map -->
 
@@ -165,6 +242,3 @@
 </body>
 
 </html>
-
-
-

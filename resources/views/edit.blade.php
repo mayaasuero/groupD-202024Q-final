@@ -17,7 +17,7 @@
     <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/121aa0023c.js"></script>
-    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
+    <!-- <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -37,9 +37,9 @@
             </li>
             <li><a href="{{ Route('students.index') }}">List of Students</a>
             </li>
-            <!-- <li><a href="#portfolio">View</a>
-            </li> -->
             <li><a href="{{ Route('students.create') }}">Add</a>
+            </li>
+            <li><a href="{{ ('/logout') }}">Log out</a>
             </li>
         </ul>
     </div>
@@ -83,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>Save User</h3>
+                    <h3>Edit Student</h3>
                     <!--<a href="#" class="btn btn-lg btn-primary">Back to top</a>-->
                 </div>
             </div>
@@ -97,14 +97,21 @@
       <div class="container2">
         @csrf
         @method('PATCH')
-            <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="ID Number">
-            <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First Name">
-            <input type="text" name="middlename" id="middlename" class="form-control" value="" placeholder="Middle Name">
-            <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Last Name">
-            <input type="date" name="birthdate" id="birthdate" class="form-control" value="" placeholder="Birthday">
-            <input type="text" name="address" id="address" class="form-control" value="" placeholder="Address">
-            <input type="text" name="year_level" id="year_level" class="form-control" value="" placeholder="Year Level">
-            <input type="text" name="course" id="course" class="form-control" value="" placeholder="Course">
+            <label>ID Number </label>
+            <input type="text" name="id_number" id="id_number" class="form-control" value="{{$student->id_number}}" placeholder="ID Number">
+            <label>First Name </label>
+            <input type="text" name="firstname" id="firstname" class="form-control" value="{{$student->firstname}}" placeholder="First Name">
+            <label>Middle Name </label>
+            <input type="text" name="middlename" id="middlename" class="form-control" value="{{$student->middlename}}" placeholder="Middle Name">
+            <label>Last Name </label>
+            <input type="text" name="lastname" id="lastname" class="form-control" value="{{$student->lastname}}" placeholder="Last Name">
+            <label>Birthdate </label>
+            <input type="date" name="birthdate" id="birthdate" class="form-control" value="{{$student->birthdate}}" placeholder="Birthday">
+            <label>Address </label>
+            <input type="text" name="address" id="address" class="form-control" value="{{$student->address}}" placeholder="Address">
+            <label>Year level </label>
+            <input type="text" name="year_level" id="year_level" class="form-control" value="{{$student->year_level}}" placeholder="Year Level">
+            <label>Course </label><input type="text" name="course" id="course" class="form-control" value="{{$student->course}}" placeholder="Course">
             <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Save User</button></th>
         </div>
         </form>

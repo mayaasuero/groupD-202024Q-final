@@ -17,19 +17,27 @@
     <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/121aa0023c.js"></script>
-    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
+    
+
+    <!-- Add custom CSS here -->
+    <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <script src="https://use.fontawesome.com/121aa0023c.js"></script>
 </head>
 
 <body>
 
     <!-- Side Menu -->
-    <a id="menu-toggle" href="/#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand"><a href="#">Menu</a>
             </li>
-            <li><a href="/">Home</a>
+            <li><a href="{{ Route('students.index') }}">Home</a>
             </li>
             <li><a href="#about">About</a>
             </li>
@@ -37,9 +45,9 @@
             </li>
             <li><a href="{{ Route('students.index') }}">List of Students</a>
             </li>
-            <!-- <li><a href="#portfolio">View</a>
-            </li> -->
-            <li><a href="{{ Route('students.create') }}">Add</a>
+            <li><a href="{{ Route('students.create') }}">Add Student</a>
+            </li>
+            <li><a href="{{ ('/logout') }}">Log out</a>
             </li>
         </ul>
     </div>
@@ -52,23 +60,9 @@
             <h3 style="color: #283971;">
                 <em>Ateneo</em>
                 <em>de</em> Cagayan</h3>
-            <a href="#about" class="btn btn-default btn-lg">About the School</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
-
-    <!-- Intro -->
-    <div id="about" class="intro">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2>Xavier University</h2>
-                    <p class="lead">is a Filipino, Catholic and Jesuit University forming leaders of character for the needs of Mindanao, the Philippines and Asia-Pacific</a>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Intro -->
 
     <!-- Callout -->
     <div class="callout">
@@ -84,7 +78,6 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <h3>Add User</h3>
-                    <a href="#" class="btn btn-lg btn-primary">Back to top</a>
                 </div>
             </div>
         </div>

@@ -29,17 +29,24 @@
             <div class="card-body">
               Login your Account
             </div>
-          </div>
-          <div class="input-group input-group-username" id="yui_3_17_2_1_1619145012988_28">
+        </div>
+        <div class="input-group input-group-username" id="yui_3_17_2_1_1619145012988_28">
+            <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+            <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First name">
+        </div>
+        <div class="input-group input-group-username" id="yui_3_17_2_1_1619145012988_28">
+            <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+            <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Lastname">
+        </div>
+        <div class="input-group input-group-username" id="yui_3_17_2_1_1619145012988_28">
             <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
             <input type="text" name="username" id="username" class="form-control" value="" placeholder="Username">
-          </div>
-          <div class="input-group input-group-password">
-            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" name="password" id="password" value="" class="form-control" placeholder="Password">
         </div>
-      <button type="submit" class="btn btn-primary btn-block" id="loginbtn">Log in</button>
-      <a href="/signup">Sign up instead</a>
+        <div class="input-group input-group-password">
+          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+          <input type="password" name="password" id="password" value="" class="form-control" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="loginbtn">Sign up</button>
 
       
 </body>

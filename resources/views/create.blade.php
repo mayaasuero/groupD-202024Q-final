@@ -1,45 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('style.css') }}">
-    <title>Edit/Add</title>
-</head>
-<body>
-  <div class="row justify-content-center logo">
-    <img src="https://slmis.xu.edu.ph/ps/images/logotype.png" alt="Xavier University Logo"/>
 
-    <div class="nav-container">
-      <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" id="views" aria-current="page" href="{{ Route('students.index') }}">Back to list</a>
-          <a class="nav-link active" id="add/dit" aria-current="page" href="{{ Route('students.create') }}">Add</a>
-          </li>
-      </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Xavier University Profiles</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
+    
+
+    <!-- Add custom CSS here -->
+    <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <script src="https://use.fontawesome.com/121aa0023c.js"></script>
+    <script src="https://kit.fontawesome.com/d0ea2fa7ce.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Side Menu -->
+    <a id="back-toggle" href="{{ Route('students.index') }}" class="btn btn-primary btn-lg toggle"><i class="fas fa-arrow-left"></i></a>
+
+    <!-- Callout -->
+    <div class="callout">
+        <div class="vert-text">
+            <h1>Experience Excellence</h1>
+        </div>
+    </div>
+    <!-- /Callout -->
+
+    <!-- Call to Action -->
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h3>Add Student</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Call to Action -->
+
+    <!-- Map -->
+    <div id="contact" class="map"> 
       <form action="{{ route('students.store') }}" method="post">
       <div class="container2">
         @csrf
-            <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="ID Number">
-            <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First Name">
-            <input type="text" name="middlename" id="middlename" class="form-control" value="" placeholder="Middle Name">
-            <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Last Name">
-            <input type="date" name="birthdate" id="birthdate" class="form-control" value="" placeholder="Birthday">
-            <input type="text" name="address" id="address" class="form-control" value="" placeholder="Address">
-            <input type="text" name="year_level" id="year_level" class="form-control" value="" placeholder="Year Level">
-            <input type="text" name="course" id="course" class="form-control" value="" placeholder="Course">
-            <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Add User</button></th>
+            <input type="text" name="id_number" id="id_number" class="form-control @error('id_number') is-invalid @enderror" value="{{ old('id_number') }}" placeholder="ID Number">
+                @error('id_number')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="firstname" id="firstname" class="form-control" value="{{ old('firstname') }}" placeholder="First Name">
+                @error('firstname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlename') }}" placeholder="Middle Name">
+                @error('middlename')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="lastname" id="lastname" class="form-control" value="{{ old('lastname') }}" placeholder="Last Name">
+                @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="date" name="birthdate" id="birthdate" class="form-control" value="{{ old('birthdate') }}" placeholder="Birthday">
+                @error('birthdate')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}" placeholder="Address">
+                @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="year_level" id="year_level" class="form-control" value="{{ old('year_level') }}" placeholder="Year Level">
+                @error('year_level')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="course" id="course" class="form-control" value="{{ old('course') }}" placeholder="Course">
+                @error('course')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Add Student</button></th>
         </div>
         </form>
+    </div>
+    <!-- /Map -->
 
-      <script src="index.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center logo">
+                    <img src="https://slmis.xu.edu.ph/ps/images/logotype.png" alt="Xavier University Logo"/>
+                    <hr>
+                    <p>Copyright &copy; Xavier University 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
 
-      <!-- <script type="text/javascript">
-        function myFunction() {
-        document.getElementById("add").innerHTML = '<object type="text/html" data="/View.html" ></object>';
-        }
-        </script> -->
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
 </body>
+
 </html>
+
+
+

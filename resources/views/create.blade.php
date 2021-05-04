@@ -17,52 +17,14 @@
     <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/121aa0023c.js"></script>
+    <script src="https://kit.fontawesome.com/d0ea2fa7ce.js" crossorigin="anonymous"></script>
 
-        <!-- Bootstrap core CSS -->
-        <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
-    
-
-    <!-- Add custom CSS here -->
-    <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <script src="https://use.fontawesome.com/121aa0023c.js"></script>
 </head>
 
 <body>
 
     <!-- Side Menu -->
-    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand"><a href="#">Menu</a>
-            </li>
-            <li><a href="{{ Route('students.index') }}">Home</a>
-            </li>
-            <li><a href="#about">About</a>
-            </li>
-            <li><a href="#services">Goals</a>
-            </li>
-            <li><a href="{{ Route('students.index') }}">List of Students</a>
-            </li>
-            <li><a href="{{ Route('students.create') }}">Add Student</a>
-            </li>
-            <li><a href="{{ ('/logout') }}">Log out</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /Side Menu -->
-
-    <!-- Full Page Image Header Area -->
-    <div id="top" class="header">
-        <div class="vert-text">
-            <h1 style="color: #283971;">Xavier University</h1>
-            <h3 style="color: #283971;">
-                <em>Ateneo</em>
-                <em>de</em> Cagayan</h3>
-        </div>
-    </div>
-    <!-- /Full Page Image Header Area -->
+    <a id="back-toggle" href="{{ Route('students.index') }}" class="btn btn-primary btn-lg toggle"><i class="fas fa-arrow-left"></i></a>
 
     <!-- Callout -->
     <div class="callout">
@@ -77,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>Add User</h3>
+                    <h3>Add Student</h3>
                 </div>
             </div>
         </div>
@@ -89,15 +51,55 @@
       <form action="{{ route('students.store') }}" method="post">
       <div class="container2">
         @csrf
-            <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="ID Number">
-            <input type="text" name="firstname" id="firstname" class="form-control" value="" placeholder="First Name">
-            <input type="text" name="middlename" id="middlename" class="form-control" value="" placeholder="Middle Name">
-            <input type="text" name="lastname" id="lastname" class="form-control" value="" placeholder="Last Name">
-            <input type="date" name="birthdate" id="birthdate" class="form-control" value="" placeholder="Birthday">
-            <input type="text" name="address" id="address" class="form-control" value="" placeholder="Address">
-            <input type="text" name="year_level" id="year_level" class="form-control" value="" placeholder="Year Level">
-            <input type="text" name="course" id="course" class="form-control" value="" placeholder="Course">
-            <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Add User</button></th>
+            <input type="text" name="id_number" id="id_number" class="form-control @error('id_number') is-invalid @enderror" value="{{ old('id_number') }}" placeholder="ID Number">
+                @error('id_number')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="firstname" id="firstname" class="form-control" value="{{ old('firstname') }}" placeholder="First Name">
+                @error('firstname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlename') }}" placeholder="Middle Name">
+                @error('middlename')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="lastname" id="lastname" class="form-control" value="{{ old('lastname') }}" placeholder="Last Name">
+                @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="date" name="birthdate" id="birthdate" class="form-control" value="{{ old('birthdate') }}" placeholder="Birthday">
+                @error('birthdate')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}" placeholder="Address">
+                @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="year_level" id="year_level" class="form-control" value="{{ old('year_level') }}" placeholder="Year Level">
+                @error('year_level')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <input type="text" name="course" id="course" class="form-control" value="{{ old('course') }}" placeholder="Course">
+                @error('course')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            <th><button type="submit" class="btn btn-primary btn-block" id="loginbtn">Add Student</button></th>
         </div>
         </form>
     </div>

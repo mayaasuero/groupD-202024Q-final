@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Student Profile') }}</title>
+    <title>Xavier University Student Profile</title>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,8 +28,8 @@
 
     <!-- Add custom CSS here -->
     <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
-    <!-- <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <script src="https://use.fontawesome.com/121aa0023c.js"></script> -->
+    <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <script src="https://use.fontawesome.com/121aa0023c.js"></script>
     <link href="{{ URL::asset('css/login-style.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 

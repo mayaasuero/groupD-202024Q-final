@@ -17,6 +17,10 @@ use App\Http\Controllers\HomeController;
 // Route::get('/', 'app/Http/Controllers/ViewController@index');
 
 Route::get('/', function () {
+    if(Auth::check()) {
+        return redirect()->route('students.index');
+    }
+
     return view('layouts.app');
 });
 

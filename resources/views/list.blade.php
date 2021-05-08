@@ -35,7 +35,7 @@
             </li>
             <li><a href="#services">Goals</a>
             </li>
-            <li><a href="{{ Route('students.index') }}">List of Students</a>
+            <li><a href="#portfolio">List of Students</a>
             </li>
             <!-- <li><a href="#portfolio">View</a>
             </li> -->

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'app/Http/Controllers/ViewController@index');
 
 Route::get('/', function () {
-    return view('reference');
+    return redirect()->route('students.index');
 });
 
 Route::resource('students', StudentController::class);

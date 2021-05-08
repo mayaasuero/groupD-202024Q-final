@@ -14,10 +14,9 @@
     
 
     <!-- Add custom CSS here -->
-    <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('/css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/121aa0023c.js"></script>
-    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body">
@@ -29,7 +28,7 @@
             <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand"><a href="#">Menu</a>
             </li>
-            <li><a href="/">Home</a>
+            <li><a href="{{ Route('students.index') }}">Home</a>
             </li>
             <li><a href="#about">About</a>
             </li>
@@ -37,9 +36,9 @@
             </li>
             <li><a href="#portfolio">List of Students</a>
             </li>
-            <!-- <li><a href="#portfolio">View</a>
-            </li> -->
             <li><a href="{{ Route('students.create') }}">Add Student</a>
+            </li>
+            <li><a href="{{ ('/logout') }}">Log out</a>
             </li>
         </ul>
     </div>
@@ -62,13 +61,56 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2>Xavier University</h2>
+                    <h2>Xavier University</h2> 
                     <p class="lead">is a Filipino, Catholic and Jesuit University forming leaders of character for the needs of Mindanao, the Philippines and Asia-Pacific</a>.</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Intro -->
+
+    <!-- Services -->
+    <div id="services" class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>University Goals</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-graduation-cap"></i>
+                        <h4>Academic Excellence</h4>
+                        <p>To develop the knowledge, skills, and attitudes required for a solid and interdisciplinary foundation in the arts, sciences, and humanities.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-book"></i> 
+                        <h4>Holistic Formation</h4>
+                        <p>To educate the heads, hearts, and hands of men and women who will serve the faith, promote justice, dialogue with cultures and religions, and care for creation, our common home.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-sitemap"></i>
+                        <h4>Social Engagement</h4>
+                        <p>To form men and women for others, who possess a deep sense of leadership and service characterized by discerning and concrete engagement in social issues and by direct service to communities, especially for the poor and those in the peripheries.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <i class="service-icon fa fa-flag-checkered"></i>
+                        <h4>Global Competitiveness</h4>
+                        <p>To educate lifelong learners who will continue to equip themselves with competencies that will enable them to work and compete in other knowledge-based economies and societies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Services -->
 
     <!-- Callout -->
     <div class="callout">
@@ -83,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>View</h2>
+                    <h2>List of Students</h2>
                     <hr>
                 </div>
             </div>
@@ -110,16 +152,17 @@
                             <th scope="row">{{$loop->iteration}}</th>
                             <td name="username">{{$students->id_number}}</td>
                             <td name="firstname">{{$students->firstname}}</td>
+                            <td name="lastname">{{$students->middlename}}</td>
                             <td name="lastname">{{$students->lastname}}</td>
                             <td name="birthdate">{{$students->birthdate}}</td>
                             <td name="address">{{$students->address}}</td>
                             <td name="year_level">{{$students->year_level}}</td>
                             <td name="course">{{$students->course}}</td>
-                            <td><a href="{{ route('students.edit', $students->id_number)}}" class="btn btn-primary btn-block" id="loginbtn">Edit</a></td>
+                            <td><a href="{{ route('students.edit', $students->id_number)}}" class="btn btn-primary btn-block" id="ed-del-btn">View</a></td>
                             <td><form action="{{ route('students.destroy', $students->id_number)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-primary btn-block" id="loginbtn">Delete</button>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-block" id="ed-del-btn">Delete</button>
                             </form></td>
                         @endforeach
                     </tbody>

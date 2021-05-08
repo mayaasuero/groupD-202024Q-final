@@ -18,6 +18,7 @@ input{
 
 button{
   margin: 5px;
+  margin-top: 20px;
 }
 
 .vert-text {
@@ -102,6 +103,19 @@ button{
   right: 0;
   position: fixed;
   z-index: 1;
+}
+
+#back-toggle {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+#ed-del-btn{
+  margin-top:0px;
+  width: 100%;
+  padding: 4px 8px 4px 8px;
 }
 
 #sidebar-wrapper.active {

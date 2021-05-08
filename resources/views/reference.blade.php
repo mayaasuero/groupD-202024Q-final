@@ -17,7 +17,6 @@
     <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/121aa0023c.js"></script>
-    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body">
@@ -29,7 +28,7 @@
             <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand"><a href="#">Menu</a>
             </li>
-            <li><a href="/">Home</a>
+            <li><a href="{{ Route('students.index') }}">Home</a>
             </li>
             <li><a href="#about">About</a>
             </li>
@@ -37,9 +36,9 @@
             </li>   
             <li><a href="{{ Route('students.index') }}">List of Students</a>
             </li>
-            <!-- <li><a href="#portfolio">View</a>
-            </li> -->
             <li><a href="{{ Route('students.create') }}">Add Student</a>
+            </li>
+            <li><a href="{{ ('/logout') }}">Log out</a>
             </li>
         </ul>
     </div>

@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'app/Http/Controllers/ViewController@index');
 
 Route::get('/', function () {
-    return view('index');
+    return redirect()->route('students.index');
 });
 
-Route::view('student-list', 'student-list');
-Route::post('submit', 'StudentController@saveStudent');
-Route::get('student-list', 'StudentController@retrieveStudent');
+Route::resource('students', StudentController::class);

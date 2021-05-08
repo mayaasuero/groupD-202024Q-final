@@ -26,6 +26,7 @@ Route::get('/ref', function () {
 
 Route::get('/reference', function () {
     return view('reference');
+
 });
 
 Route::get('/signup', function () {

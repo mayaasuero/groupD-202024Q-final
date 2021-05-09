@@ -35,16 +35,20 @@ abstract class DuskTestCase extends BaseTestCase
             '--window-size=1920,1080',
         ])->unless($this->hasHeadlessDisabled(), function ($items) {
             return $items->merge([
-                '--disable-gpu',
-                '--headless',
+                // '--disable-gpu',
+                // '--headless',
             ]);
         })->all());
 
+        // return RemoteWebDriver::create(
+        //     $_ENV['DUSK_DRIVER_URL'] ?? 'http://localhost:9515',
+        //     DesiredCapabilities::chrome()->setCapability(
+        //         ChromeOptions::CAPABILITY, $options
+        //     )
+        // );
+
         return RemoteWebDriver::create(
-            $_ENV['DUSK_DRIVER_URL'] ?? 'http://127.0.0.1:8000',
-            DesiredCapabilities::chrome()->setCapability(
-                ChromeOptions::CAPABILITY, $options
-            )
+            'http://127.0.0.1:8000', DesiredCapabilities::chrome()
         );
     }
 

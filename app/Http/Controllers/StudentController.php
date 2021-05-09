@@ -16,7 +16,7 @@ class StudentController extends Controller
 
     function store(Request $req){
             $data = $req->validate([
-                'id_number' => 'required|max:255',
+                'id_number' => 'required|numeric',
                 'firstname' => 'required|max:255',
                 'middlename' => 'required|max:255',
                 'lastname' => 'required|max:255',
@@ -60,7 +60,7 @@ class StudentController extends Controller
     public function update(Request $req, $id)
     {
         $updateData = $req->validate([
-            'id_number' => 'required|max:255',
+            'id_number' => 'required|numeric',
             'firstname' => 'required|max:255',
             'middlename' => 'required|max:255',
             'lastname' => 'required|max:255',

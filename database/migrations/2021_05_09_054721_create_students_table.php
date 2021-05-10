@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStudentsTable extends Migration
 {
-    use DatabaseRefresh;
+   // use DatabaseRefresh;
 
     /**
      * Run the migrations.

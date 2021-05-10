@@ -14,9 +14,11 @@ body{
     gap: 1rem;
    }
 .nav-item {
-    
     flex-direction: row;
-   }
+    padding-left: 15px;
+    align-items: center;
+}
+
 .logo{
     width: 100vw;
 }

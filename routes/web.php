@@ -21,7 +21,7 @@ Route::get('/', function () {
         return redirect()->route('students.index');
     }
 
-    return view('layouts.app');
+    return redirect('/login');
 });
 
 Route::get('/ref', function () {

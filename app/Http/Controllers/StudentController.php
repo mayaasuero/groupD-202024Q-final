@@ -15,18 +15,18 @@ class StudentController extends Controller
     }
 
     function store(Request $req){
-        $data = $req->validate([
-            'id_number' => 'required|max:255',
-            'firstname' => 'required|max:255',
-            'middlename' => 'required|max:255',
-            'lastname' => 'required|max:255',
-            'birthdate' => 'required|date',
-            'address' => 'required|max:255',
-            'year_level' => 'required|numeric',
-            'course' => 'required|max:255',
-        ]);
-        $student = Student::create($data);
-        return redirect('/students')->with('completed', 'Student has been added!');
+            $data = $req->validate([
+                'id_number' => 'required|numeric|unique:students',
+                'firstname' => 'required|max:255',
+                'middlename' => 'required|max:255',
+                'lastname' => 'required|max:255',
+                'birthdate' => 'required|date',
+                'address' => 'required|max:255',
+                'year_level' => 'required|numeric',
+                'course' => 'required|max:255',
+            ]);
+            $student = Student::create($data);
+            return redirect('/students')->with('completed', 'Student has been added!');
 
         // return back();
     }
@@ -60,7 +60,7 @@ class StudentController extends Controller
     public function update(Request $req, $id)
     {
         $updateData = $req->validate([
-            'id_number' => 'required|max:255',
+            'id_number' => 'required|numeric',
             'firstname' => 'required|max:255',
             'middlename' => 'required|max:255',
             'lastname' => 'required|max:255',

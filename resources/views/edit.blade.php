@@ -57,7 +57,7 @@
             <div class="form-group row">
                 <label for="id_student" class="col-sm-2 col-form-label">ID Number </label>
                 <div class="col-sm-10">
-                    <input type="text" name="id_number" id="id_number" class="form-control" value="{{$student->id_number}}" placeholder="ID Number">
+                    <input type="text" name="id_number" id="id_number" class="form-control" value="{{$student->id_number}}" placeholder="ID Number" readonly>
                     @error('id_number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

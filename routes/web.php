@@ -17,7 +17,11 @@ use App\Http\Controllers\HomeController;
 // Route::get('/', 'app/Http/Controllers/ViewController@index');
 
 Route::get('/', function () {
-    return view('layouts.app');
+    if(Auth::check()) {
+        return redirect()->route('students.index');
+    }
+
+    return redirect('/login');
 });
 
 Route::get('/ref', function () {
@@ -26,6 +30,7 @@ Route::get('/ref', function () {
 
 Route::get('/reference', function () {
     return view('reference');
+
 });
 
 Route::get('/signup', function () {

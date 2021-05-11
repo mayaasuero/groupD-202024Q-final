@@ -51,7 +51,7 @@
       <form action="{{ route('students.store') }}" method="post">
       <div class="container2">
         @csrf
-            <input type="text" name="id_number" id="id_number" class="form-control @error('id_number') is-invalid @enderror" value="{{ old('id_number') }}" placeholder="ID Number">
+            <input type="numeric" name="id_number" id="id_number" class="form-control @error('id_number') is-invalid @enderror" value="{{ old('id_number') }}" placeholder="ID Number">
                 @error('id_number')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            <input type="text" name="year_level" id="year_level" class="form-control" value="{{ old('year_level') }}" placeholder="Year Level">
+            <input type="numeric" name="year_level" id="year_level" class="form-control" value="{{ old('year_level') }}" placeholder="Year Level">
                 @error('year_level')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

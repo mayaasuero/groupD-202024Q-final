@@ -20,17 +20,19 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => '357df6f934cc42b782bfb832d668facd671f4fe5',
+    'reference' => 'ce6357615de3604a9115a30c72a7061ef0b7244e',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -138,6 +140,13 @@ private static $installed = array (
       array (
       ),
       'reference' => '3c921a1cdba35b68a7f0ccffc6dffc1995b18267',
+    ),
+    'facebook/webdriver' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '*',
+      ),
     ),
     'fakerphp/faker' => 
     array (
@@ -444,6 +453,15 @@ private static $installed = array (
         0 => '*',
       ),
     ),
+    'laravel/dusk' => 
+    array (
+      'pretty_version' => 'v6.15.0',
+      'version' => '6.15.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '45b55fa20321086c4f8cc4e712cbe54db644e21c',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.38.0',
@@ -455,12 +473,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => '357df6f934cc42b782bfb832d668facd671f4fe5',
+      'reference' => 'ce6357615de3604a9115a30c72a7061ef0b7244e',
     ),
     'laravel/sail' => 
     array (
@@ -607,6 +625,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'bae7c545bef187884426f042434e561ab1ddb182',
+    ),
+    'php-webdriver/webdriver' => 
+    array (
+      'pretty_version' => '1.11.0',
+      'version' => '1.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '66adc952127dd1314af94ce28f8fc332d38f229b',
     ),
     'phpdocumentor/reflection-common' => 
     array (
@@ -1313,7 +1340,6 @@ foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
 
-
 if (1 === \count($packages)) {
 return $packages[0];
 }
@@ -1505,6 +1531,7 @@ public static function reload($data)
 self::$installed = $data;
 self::$installedByVendor = array();
 }
+
 
 
 
